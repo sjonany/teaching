@@ -121,8 +121,12 @@ img {
     vertical-align: middle;
 }
 
+/* Browser default is ~40px of padding; the extra margin the UW template adds on
+   top of that pushes list text uncomfortably far right. Use a single modest
+   indent instead. */
 main ul, main ol {
-    margin-left: 30px;
+    margin-left: 0;
+    padding-left: 22px;
 }
 
 li > ul, li > ol {
