@@ -3,6 +3,9 @@
 *-solution.*
 *solutions*
 
+# Byproduct of generate.py importing schedule.py
+__pycache__/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db

@@ -12,14 +12,71 @@ index.html              landing page listing courses
 site/css/main.css       shared styling (nav bar, typography)
 site/css/calendar.css   month-grid calendar styling, loaded only by calendar pages
 cs442-au2026/
-    nav.js              the nav bar, defined once for this course
-    index.html          Home      -> /teaching/cs442-au2026/
-    calendar/index.html Calendar  -> /teaching/cs442-au2026/calendar/
-    resources/          Resources -> /teaching/cs442-au2026/resources/
-    assets/             syllabus and handouts linked from the pages
+    nav.js               the nav bar, defined once for this course
+    index.html           Home      -> /teaching/cs442-au2026/
+    calendar/index.html  Calendar  -> /teaching/cs442-au2026/calendar/  (generated)
+    calendar/generate.py builds that page from the schedule data
+    resources/           Resources -> /teaching/cs442-au2026/resources/
+    assets/              syllabus and handouts linked from the pages
 ```
 
 Homework is linked from the calendar rather than getting its own tab.
+
+## The calendar
+
+`calendar/index.html` is **generated** — never edit it by hand.
+
+```
+cd cs442-au2026/calendar
+python3 generate.py          # rebuild the page
+python3 generate.py --ids    # list every id you can attach files to
+```
+
+`schedule.py` holds the data: lecture topics per week, the quiz list, homework
+list, holidays, which Fridays are mock interviews versus lectures, one-off
+dates, and attachments. `generate.py` holds the rendering and never needs
+editing for routine updates.
+
+Quiz attempt dates are computed rather than listed — each quiz runs Monday and
+Wednesday of its week plus the following Monday, and any attempt landing on a
+holiday, the midterm, or finals week is dropped, so a few quizzes end up with
+two attempts. The script prints which ones every run.
+
+### Attaching handouts, notes, and readings
+
+Every item that lands in a cell has a stable id: `hw3`, `quiz7`, `mock2`,
+`lec-2026-10-05`, `midterm`, `finals`. Run `generate.py --ids` to see them all
+with their dates.
+
+Each homework appears twice: **`hw<N>` is the Monday "HW N out" block, and that
+is where the handout goes**; `hw<N>-due` is the Friday reminder of the Sunday
+deadline. Hang files off an id in `schedule.py`:
+
+```python
+ATTACHMENTS = {
+    "lec-2026-09-21": [
+        ("slides", "01-divide-and-conquer.pdf"),
+        ("annotated", "01-divide-and-conquer-ink.pdf"),
+        ("reading", "https://www.algorithmsilluminated.org/"),
+    ],
+    "hw1": [
+        ("handout", "hw1-div.pdf"),
+    ],
+}
+```
+
+A target starting with `http` becomes an external link; anything else is a
+filename in `assets/`. Attachments land inside that specific item's block, so a
+homework's handout and a lecture's notes stay separate even on the same day.
+
+The build **fails** rather than shipping a broken link if an id doesn't exist or
+a named file isn't in `assets/`. It also lists files sitting in `assets/` that
+nothing references.
+
+### The weekly loop
+
+Drop the week's files in `assets/`, add their ids to `ATTACHMENTS`, run
+`generate.py`, check the diff, push.
 
 ## Tabs
 
