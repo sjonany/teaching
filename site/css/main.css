@@ -1,0 +1,182 @@
+/*
+ * Base site styling.
+ * Adapted from the UW CSE course website template (see CSE 421, 26sp),
+ * with Bootstrap dependencies removed in favor of plain flexbox.
+ *
+ * To restyle the site for a different course, change --brand below.
+ */
+
+:root {
+    --brand: #00447c;        /* header bar background */
+    --brand-hover: #1667ad;  /* hovered + active tab background */
+    --brand-fg: #fff;        /* text color on hovered + active tabs */
+    --link: #1c67ca;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 300 16px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fdfdfd;
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+/* Maintain vertical rhythm */
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure {
+    margin-bottom: 15px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+h5, h6 {
+    font-weight: 300;
+}
+
+
+/* ---------- Top navigation ---------- */
+
+#top-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    background-color: var(--brand);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-brand h1 {
+    margin: 0;
+    font-size: 21px;
+    color: #fff;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav > li > a {
+    display: block;
+    padding: 13px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-nav > li > a:visited {
+    color: #fff;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a.active {
+    background-color: var(--brand-hover);
+    color: var(--brand-fg);
+}
+
+#course-quarter {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 13px 15px;
+    color: #fff;
+}
+
+
+/* ---------- Main content ---------- */
+
+main {
+    margin-top: 15px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+main ul, main ol {
+    margin-left: 30px;
+}
+
+li > ul, li > ol {
+    margin-bottom: 0;
+}
+
+main a, #footer a {
+    color: var(--link);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #1756a9;
+}
+
+blockquote {
+    color: #828282;
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+pre, code {
+    font-family: "Inconsolata", monospace;
+    font-size: 100%;
+    background-color: #f7f7f9;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+}
+
+/* Placeholder marker for pages that aren't written yet. */
+.todo {
+    background-color: #fff0a8;
+    border: 1px solid #e0d080;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    border-top: 1px solid #e8e8e8;
+    max-width: 1100px;
+    margin: 40px auto 50px auto;
+    padding: 10px 15px;
+    color: #828282;
+    font-size: 14px;
+}

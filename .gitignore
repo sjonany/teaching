@@ -1,0 +1,11 @@
+# Any source or docs that might carry solutions.
+*-soln.*
+*-solution.*
+*solutions*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

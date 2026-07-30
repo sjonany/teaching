@@ -1,0 +1,138 @@
+/*
+ * Calendar styling, taken from the UW CSE course website template
+ * (see CSE 421, 26sp) so the month grid matches that layout.
+ *
+ * Only loaded by calendar pages.
+ *
+ * Usage: each month is one <table class="monthtable"> with Monday-Friday
+ * columns. Each day is a <td class="eventtd"> holding a <span class="datespan">
+ * for the date number, plus one <div> per event. The event div's class picks
+ * its color: lecture, section, lab, exam, hw, oh, holiday, other.
+ */
+
+table {
+    page-break-inside: avoid;
+}
+
+/* Each month in the full html table is a table.monthtable */
+table.monthtable {
+    table-layout: fixed;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table.monthtable td {
+    vertical-align: top;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/* The month name box */
+.month-header {
+    text-align: center;
+    font-size: large;
+}
+
+/* The day of the week boxes */
+.day-header {
+    background-color: #e8e8e8;
+    width: 100%;
+    text-align: center;
+}
+
+/* An entry that has something in it */
+td.eventtd {
+    font-size: 75%;
+    letter-spacing: -0.5px;
+}
+
+/* An entry not during the quarter */
+td.notinquarter {
+    background-color: LightGray;
+}
+
+/* Highlights today's entry in the calendar */
+table.monthtable td.today {
+    border-width: 5px;
+    border-color: SkyBlue;
+}
+
+/* The date label */
+span.datespan {
+    font-size: medium;
+    float: right;
+    margin-right: 5px;
+    color: DimGray;
+}
+
+/* Font styles for the pieces of an individual entry */
+span.description {
+    font-style: italic;
+}
+
+/* Background colors for each entry type */
+div.lecture {
+    background-color: #c4f0fe;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.section {
+    background-color: #cef9bd;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.lab {
+    background-color: Peru;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.exam {
+    background-color: #ffd7d7;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.hw {
+    background-color: #e9c3f9;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.oh {
+    background-color: #fff0a8;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.holiday {
+    background-color: #e0e0e0;
+    padding: 4px;
+    margin: 2px;
+}
+
+div.other {
+    background-color: Plum;
+    padding: 4px;
+    margin: 2px;
+}
+
+/* Legend shown above the calendar */
+.cal-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0 0 10px 0 !important;
+    padding: 0;
+    font-size: 85%;
+}
+
+.cal-legend div {
+    margin: 0;
+}
