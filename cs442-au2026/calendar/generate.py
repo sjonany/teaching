@@ -161,11 +161,11 @@ def build_items():
                       [f"{S.MW_TIME} {summary('Midterm')}", location(S.MW_ROOM)],
                       "midterm"))
     items.append(Item(
-        "finals", monday_of(12), "exam",
-        [summary("Finals week"),
-         description("Final exam date TBD; announced once the college "
-                     "calendar is set")],
-        "finals week"))
+        "finals", S.FINAL_EXAM, "exam",
+        [f"{S.FINAL_EXAM_TIME} {summary('Final exam')}",
+         location(S.FINAL_EXAM_ROOM),
+         description("No regular classes during finals week")],
+        "final exam"))
 
     # holidays
     for day, label in S.NO_CLASS.items():

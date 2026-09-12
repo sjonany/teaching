@@ -63,6 +63,13 @@ NO_CLASS = {
 
 MIDTERM = D(2026, 10, 28)
 
+# Set by the college's final exam schedule, which keys off the class start time
+# and meeting days: a 12:30 MW class examines on the Wednesday of finals week
+# in its usual time slot.  https://www.edmonds.edu/calendar/exams/fall.html
+FINAL_EXAM = D(2026, 12, 9)
+FINAL_EXAM_TIME = MW_TIME
+FINAL_EXAM_ROOM = MW_ROOM
+
 # --------------------------------------------------------------------- quizzes
 
 # Quiz number, topic, and the week it is first administered.
