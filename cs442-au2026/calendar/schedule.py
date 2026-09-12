@@ -94,11 +94,11 @@ HOMEWORK = [
     (3, "DP 2D", 3),
     (4, "Streaming", 4),
     (5, "Greedy", 5),
-    (6, "Midterm recap", 6),
-    (7, "Graph traversals", 7),
-    (8, "DP on graphs I", 8),
-    (9, "DP on graphs II", 9),
-    (10, "P vs NP", 10),
+    # week 6 is midterm week, no homework
+    (6, "Graph traversals", 7),
+    (7, "DP on graphs I", 8),
+    (8, "DP on graphs II", 9),
+    (9, "P vs NP", 10),
     # week 11 has no homework
 ]
 
