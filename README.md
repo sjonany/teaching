@@ -38,9 +38,11 @@ dates, and attachments. `generate.py` holds the rendering and never needs
 editing for routine updates.
 
 Quiz attempt dates are computed rather than listed — each quiz runs Monday and
-Wednesday of its week plus the following Monday, and any attempt landing on a
-holiday, the midterm, or finals week is dropped, so a few quizzes end up with
-two attempts. The script prints which ones every run.
+Wednesday of its week plus the following Monday. An attempt landing on a
+holiday, the midterm, or finals week is **pushed to the next Monday/Wednesday
+slot** rather than dropped, so a quiz keeps all three attempts and its last
+chance can fall later than that pattern suggests. Only a quiz that runs out of
+quarter ends up with two attempts; the script prints which ones every run.
 
 ### Attaching handouts, notes, and readings
 

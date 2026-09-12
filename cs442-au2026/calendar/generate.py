@@ -70,6 +70,24 @@ def monday_of(week):
 
 # ------------------------------------------------------------- building items
 
+def quiz_attempt_days(first_monday, blocked, count=3):
+    """The days a quiz's attempts actually land on.
+
+    Attempts want the Monday and Wednesday of the quiz's week and then the
+    following Monday. A slot falling on a holiday, the midterm, or finals week
+    is skipped and that attempt moves to the next Monday/Wednesday slot, so a
+    quiz keeps all three attempts unless the quarter runs out of slots first.
+    """
+    days = []
+    day = first_monday
+    while len(days) < count and day <= S.QUARTER_END:
+        if day not in blocked:
+            days.append(day)
+        # Monday -> Wednesday of the same week -> Monday of the next.
+        day += dt.timedelta(days=2 if day.weekday() == 0 else 5)
+    return days
+
+
 def build_items():
     items = []
     reduced = []
@@ -102,9 +120,7 @@ def build_items():
 
     # quizzes; attachments render on the first attempt only
     for num, topic, week in S.QUIZZES:
-        mon = monday_of(week)
-        candidates = [mon, mon + dt.timedelta(days=2), mon + dt.timedelta(weeks=1)]
-        days = [d for d in candidates if d not in no_quiz]
+        days = quiz_attempt_days(monday_of(week), no_quiz)
         if len(days) < 3:
             reduced.append((num, topic, len(days)))
         for i, day in enumerate(days, start=1):
@@ -307,10 +323,11 @@ PAGE = """<!DOCTYPE html>
        handout; the deadline is repeated in that week's Friday cell.</p>
 
     <p>Each mastery quiz can be attempted up to three times, on the Monday and
-       Wednesday of the week it is introduced and again the following Monday. A
-       few quizzes get two attempts instead of three, because a scheduled
-       attempt falls on a holiday, the midterm, or finals week. Every cell says
-       which attempt it is and flags the last chance.</p>
+       Wednesday of the week it is introduced and again the following Monday. If
+       one of those days is a holiday, the midterm, or in finals week, that
+       attempt moves to the next class day a quiz can run on rather than being
+       lost, so the last attempt is sometimes later than that pattern suggests.
+       Every cell says which attempt it is and flags the last chance.</p>
 
 {legend}
 
@@ -347,7 +364,7 @@ def main():
           f"{len(S.ATTACHMENTS)} cells")
     if reduced:
         print("\nquizzes with fewer than 3 attempts "
-              "(collision with a holiday/midterm/finals):")
+              "(no slot left in the quarter to push to):")
         for num, topic, n in reduced:
             print(f"  Quiz {num} ({topic}): {n} attempts")
     if warnings:
