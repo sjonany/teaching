@@ -152,6 +152,7 @@ ATTACHMENTS = {
     "lec-2026-09-21": [
         ("slides-intro", "slides-intro.pdf"),
         ("slides-div", "slides-div-conq.pdf"),
+        ("binary search addendum", "binary-search-addendum.pdf"),
     ],
     "hw1": [
         ("handout", "hw1-div.pdf"),
