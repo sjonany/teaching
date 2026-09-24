@@ -319,7 +319,7 @@ PAGE = """<!DOCTYPE html>
     <h2>Calendar</h2>
 
     <p>Each homework goes out on <strong>Monday</strong> and is due the
-       following <strong>Sunday at 11:00pm</strong>. The Monday cell carries the
+       following <strong>Sunday at {hw_due_time}</strong>. The Monday cell carries the
        handout; the deadline is repeated in that week's Friday cell.</p>
 
     <p>Each mastery quiz can be attempted up to three times, on the Monday and
@@ -353,7 +353,7 @@ def main():
         return
 
     warnings = validate(items)
-    html = PAGE.format(legend=LEGEND, calendar=render(items))
+    html = PAGE.format(legend=LEGEND, calendar=render(items), hw_due_time=S.HW_DUE_TIME)
     path = os.path.join(HERE, "index.html")
     with open(path, "w") as f:
         f.write(html)

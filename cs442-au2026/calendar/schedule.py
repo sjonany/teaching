@@ -26,7 +26,7 @@ MW_ROOM = "Snohomish 119"
 FR_TIME = "12:30-1:20pm"
 FR_ROOM = "Online (Zoom)"
 
-HW_DUE_TIME = "11:00pm"
+HW_DUE_TIME = "11:59pm"
 
 # ------------------------------------------------------------------- lectures
 
