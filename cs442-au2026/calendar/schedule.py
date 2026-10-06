@@ -157,10 +157,16 @@ ATTACHMENTS = {
     "lec-2026-09-28": [
         ("slides-dp-1d", "slides-dp-1d.pdf"),
     ],
+    "lec-2026-10-05": [
+        ("slides-dp-2d", "slides-dp-2d.pdf"),
+    ],
     "hw1": [
         ("handout", "hw1-div.pdf"),
     ],
     "hw2": [
         ("handout", "hw2-dp-1d.pdf"),
+    ],
+    "hw3": [
+        ("handout", "hw3-dp-2d.pdf"),
     ],
 }
