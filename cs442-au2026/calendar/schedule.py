@@ -172,4 +172,7 @@ ATTACHMENTS = {
     "hw3": [
         ("handout", "hw3-dp-2d.pdf"),
     ],
+    "hw4": [
+        ("handout", "hw4-dp-states-sliding.pdf"),
+    ],
 }
