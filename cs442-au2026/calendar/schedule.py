@@ -175,6 +175,9 @@ ATTACHMENTS = {
     "lec-2026-11-04": [
         ("slides-graphs (annotated)", "slides-graphs-ink.pdf"),
     ],
+    "lec-2026-11-13": [
+        ("slides-tree-dp (annotated)", "slides-tree-dp-ink.pdf"),
+    ],
     "hw1": [
         ("handout", "hw1-div.pdf"),
     ],
