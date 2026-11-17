@@ -199,4 +199,7 @@ ATTACHMENTS = {
     "hw7": [
         ("handout", "hw7-tree-dp.pdf"),
     ],
+    "hw8": [
+        ("handout", "hw8-graph-dp.pdf"),
+    ],
 }
